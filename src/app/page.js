@@ -2,9 +2,11 @@
 import { BsFacebook, BsGoogle } from "react-icons/bs";
 import styles from "./page.module.css";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [isRegistered, setIsRegistered] = useState(false);
+  const router = useRouter();
 
   const setToRegister = (e) => {
     e.preventDefault();
@@ -13,10 +15,13 @@ export default function Home() {
   const setToLogin = (e) => {
     e.preventDefault();
     setIsRegistered(true);
+
+    router.push("/home", { scroll: false });
   };
   return (
     <div
       id="container"
+      style={{ marginTop: "150px" }}
       className={
         isRegistered === true
           ? styles.container

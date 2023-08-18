@@ -33,7 +33,9 @@
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
 
-  --red: #ff4b2b;
+  --red: rgb(255, 75, 43);
+  --red-low-opacity: rgba(255, 75, 43, 0.25);
+
   --blue: #3294F8;
   --bg-dark: #071422;
   --body-bg-white: #f6f5f7;

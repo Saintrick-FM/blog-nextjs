@@ -7,10 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px ${(props) => props.theme["blue"]};
-  }
+  /* :focus {
+     outline: 0;
+     box-shadow: 0 0 0 2px ${(props) => props.theme["blue"]};
+   }*/
 
   body {
     background: ${(props) => props.theme["base-background"]};
@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body, input, textarea, button {
-    font: 400 1rem Nunito, 'sans-serif';
+    font: Montserra, "400 1rem Nunito", 'sans-serif';
   }
   
     /* width */
