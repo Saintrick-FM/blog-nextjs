@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import { BsFacebook, BsGoogle } from "react-icons/bs";
 import styles from "./page.module.css";
 import { useState } from "react";
 
@@ -27,14 +27,27 @@ export default function Home() {
         <form className={styles.form}>
           <h1 className={styles.h1_title}>Créer un compte</h1>
           <div className={styles.socialContainer}>
-            <a href="#" className={` ${styles.link} ${styles.social}`}>
-              <i className="fab fa-facebook-f"></i>
+            <a href="#">
+              {/* <i className="fab fa-facebook-f"></i> */}
+              <BsFacebook
+                className={styles.socialIcon}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  color: "var(--bg-dark)",
+                }}
+              />
             </a>
-            <a href="#" className={` ${styles.link} ${styles.social}`}>
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-            <a href="#" className={` ${styles.link} ${styles.social}`}>
-              <i className="fab fa-linkedin-in"></i>
+            <a href="#" className={`${styles.link} ${styles.social}`}>
+              {/* <i className="fab fa-google-plus-g"></i> */}
+              <BsGoogle
+                className={styles.socialIcon}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  color: "var(--bg-dark)",
+                }}
+              />
             </a>
           </div>
           <span className={styles.span}>Ou s&lsquo;inscrire avec.</span>
@@ -53,29 +66,41 @@ export default function Home() {
           </button>
         </form>
       </div>
+
       <div className={`${styles.formContainer} ${styles.signInContainer}`}>
         <form className={styles.form} action="#">
-          <h1 className={styles.h1_title}>Sign in</h1>
+          <h1 className={styles.h1_title}>Se connecter</h1>
           <div className={styles.socialContainer}>
             <a href="#" className={`${styles.social} ${styles.link}`}>
-              <i className="fab fa-facebook-f"></i>
+              <BsFacebook
+                className={styles.socialIcon}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  color: "var(--bg-dark)",
+                }}
+              />
             </a>
             <a href="#" className={`${styles.social} ${styles.link}`}>
-              <i className="fab fa-google-plus-g"></i>
-            </a>
-            <a href="#" className={`${styles.social} ${styles.link}`}>
-              <i className="fab fa-linkedin-in"></i>
+              <BsGoogle
+                className={styles.socialIcon}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  color: "var(--bg-dark)",
+                }}
+              />
             </a>
           </div>
-          <span className={styles.span}>or use your account</span>
+          <span className={styles.span}>ou utilisez vos identifiants</span>
           <input className={styles.input} type="email" placeholder="Email" />
           <input
             className={styles.input}
             type="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
           />
           <a className={styles.link} href="#">
-            Forgot your password?
+            Mot de passe oublié ?
           </a>
           <button
             className={`${styles.button} `}
@@ -85,6 +110,7 @@ export default function Home() {
           </button>
         </form>
       </div>
+
       <div className={styles.overlayContainer}>
         <div className={styles.overlay}>
           <div className={`${styles.overlayPanel} ${styles.overlayLeft}`}>
@@ -100,10 +126,11 @@ export default function Home() {
               Se connecter
             </button>
           </div>
+
           <div className={`${styles.overlayPanel} ${styles.overlayRight}`}>
-            <h1 className={styles.h1_title}>Hello, Friend!</h1>
+            <h1 className={styles.h1_title}>Bonjour cher ami!</h1>
             <p className={styles.paragraph}>
-              Enter your personal details and start journey with us
+              Inscrivez-vous puis profitez de notre merveilleux blog.
             </p>
             <button
               className={`${styles.button} ${styles.ghost}`}

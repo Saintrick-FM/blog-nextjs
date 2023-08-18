@@ -32,10 +32,16 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --red: #ff4b2b;
+  --blue: #3294F8;
+  --bg-dark: #071422;
+  --body-bg-white: #f6f5f7;
+  --card-linear-gradient: linear-gradient(to right, var(--red), var(--bg-dark), var(--red));
 }
 
 body {
-  background: #f6f5f7;
+  background: var(--bg-dark);
   display: flex;
   justify-content: center;
   align-items: center;
