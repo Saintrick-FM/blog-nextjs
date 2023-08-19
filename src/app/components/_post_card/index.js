@@ -4,7 +4,7 @@ function PostCard({ post }) {
   return (
     <PostCardContainer href={`/home/${post.id}`}>
       <header>
-        <h1>{post.title}</h1>
+        <h1 style={{ color: "var(--blue)" }}>{post.title}</h1>
         <span>Il y&lsquo;a {post.comments} heures</span>
       </header>
       <main>

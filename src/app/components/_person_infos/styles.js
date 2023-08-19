@@ -10,6 +10,7 @@ export const PersonInfoContainer = styled.div`
   border-radius: 10px;
   padding: 2rem;
   gap: 2rem;
+
   img {
     border-radius: 10px;
   }

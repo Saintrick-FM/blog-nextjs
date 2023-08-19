@@ -1,6 +1,6 @@
 "use client";
 import techBg from "../../../assets/images/tech-bg.svg";
-import { HeaderContainer } from "./styles";
+import { HeaderContainer, HeaderTitle } from "./styles";
 import Image from "next/image";
 
 function Header() {

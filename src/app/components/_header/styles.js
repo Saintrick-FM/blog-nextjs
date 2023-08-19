@@ -11,3 +11,13 @@ export const HeaderContainer = styled.div`
     width: 100%;
   }
 `;
+export const HeaderTitle = styled.h2`
+  color: #3294f8;
+  position: absolute;
+  top: 105px;
+
+  @media (max-width: 800px) {
+    top: 25px;
+    font-size: 1em;
+  }
+`;
