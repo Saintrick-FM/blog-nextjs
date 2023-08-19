@@ -1,37 +1,44 @@
 import { PersonInfoContainer } from "./styles";
 import Image from "next/image";
+import { BsGithub } from "react-icons/bs";
+import { FaUsers, FaHotel } from "react-icons/fa";
+import { BsBoxArrowUpRight } from "react-icons/bs";
+import profil_picture from "../../../assets/images/My_resized_photo.jpeg";
 
 function PersonInfo() {
   return (
     <PersonInfoContainer>
-      {/* <Image
-      priority
-      src={twitterIcon}
-      alt="Follow us on Twitter"/> */}
+      <Image
+        priority
+        src={profil_picture}
+        alt="Image profil"
+        style={{ width: "148px", height: "148px" }}
+      />
 
       {/* <img width={148} height={148} src={userInfo?.imgUrl} alt="Person Photo" /> */}
       <div>
         <header>
           <h1>Francy</h1>
           <a href="https://github.com/Saintrick-FM" target="_blank">
-            GITHUB <i className="fa-solid fa-arrow-up-right-from-square"></i>
+            GITHUB
+            <BsBoxArrowUpRight style={{ marginBottom: "2.5px" }} />
           </a>
         </header>
 
-        <main>
+        {/* <main>
           <p>Mon blog</p>
-        </main>
+        </main> */}
         <footer>
           <span>
-            <i className="fa-brands fa-github"></i>
+            <BsGithub />
             Saintrick-FM
           </span>
           <span>
-            <i className="fa-solid fa-building"></i>
+            <FaHotel />
             Ginov Digital
           </span>
           <span>
-            <i className="fa-solid fa-user-group"></i>
+            <FaUsers />
             10 Followers
           </span>
         </footer>

@@ -1,5 +1,5 @@
 "use client";
-import techBg from "@/assets/tech-bg.svg";
+import techBg from "../../../assets/images/tech-bg.svg";
 import { HeaderContainer } from "./styles";
 import Image from "next/image";
 
