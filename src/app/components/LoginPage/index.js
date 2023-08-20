@@ -15,7 +15,6 @@ function LoginPage() {
   const setToLogin = (e) => {
     e.preventDefault();
     setIsRegistered(true);
-    console.log(router);
     router.push("/home", { scroll: false });
   };
   return (

@@ -1,7 +1,7 @@
 import LoginPage from "./components/LoginPage";
 
 export const metadata = {
-  title: "Blog | Connexion",
+  title: "Projets | Connexion",
   description: "Page de connexion de notre blog",
 };
 export default function Page() {

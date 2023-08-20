@@ -2,12 +2,11 @@ import PostDetailsPage from "../../components/PostDetailsPage";
 
 export async function generateMetadata({ params, searchParams }, parent) {
   // read route params
-  //console.log("search params = ", searchParams, " Parent = ", parent);
   const postId = params.postId;
   // let userData = getUserInfos(postId);
   // let user = await userData;
   return {
-    title: `Demo | ${postId}`,
+    title: `Projets | Projet${postId}`,
     description: `Page relative aux post : ${postId}`,
   };
 }

@@ -1,7 +1,7 @@
 import HomePage from "../components/HomePage";
 
 export const metadata = {
-  title: "Blog | Accueil",
+  title: "Projets | Accueil",
   description: "Page d'accueil du projet demo",
 };
 
