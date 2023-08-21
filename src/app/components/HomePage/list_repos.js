@@ -6,10 +6,10 @@ import {
 } from "./styles";
 
 import PostCard from "../../components/_post_card";
-import getUserRepos from "../../../helpers/getUserRepos";
+import getAllUserRepos from "../../../helpers/githubRequests/getAllUserRepos";
 
 async function ListRepos() {
-  const resp = getUserRepos("Saintrick-FM");
+  const resp = getAllUserRepos("Saintrick-FM");
   const projects = await resp;
 
   return (
@@ -18,7 +18,8 @@ async function ListRepos() {
         <div>
           <span>Projets</span>
           <small>
-            {projects ? projects.length : 0} post{projects && "s"}
+            {projects ? projects.length : 0} repos
+            {projects && projects.length > 1 ? " publics " : "public"}
           </small>
         </div>
         <input

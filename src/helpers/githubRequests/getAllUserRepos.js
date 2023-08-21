@@ -1,4 +1,4 @@
-export default async function getUserRepos(username) {
+export default async function getAllUserRepos(username) {
   try {
     const resp = await fetch(`https://api.github.com/users/${username}/repos`);
     const data = resp.json();

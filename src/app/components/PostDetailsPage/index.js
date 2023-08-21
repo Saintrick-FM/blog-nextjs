@@ -5,23 +5,14 @@ import {
   PostDetailContainer,
   PostDetailContent,
 } from "./styles";
-
+import "moment/locale/fr";
 import { CgWebsite } from "react-icons/cg";
 import { TbWorldWww } from "react-icons/tb";
 import { IoMdArrowRoundBack } from "react-icons/io";
-function PostDetailsPage({ postId }) {
-  const post = {
-    id: postId,
-    url: "https://github.com/Saintrick-FM",
-    title: `Mon ${postId}e${postId == 1 ? "r" : ""} post`,
-    githubUsername: "Saintrick-FM",
-    createdAt: "11 Mai 2023",
-    comments: 15,
-    body: `${postId}e${postId == 1 ? "r" : ""} post!
-    
-  (https://i.pinimg.com/originals/5c/46/c4/5c46c455955910be190adf26166f5470.jpg) In the waters shallow and wide Where the sun meets the horizon‘s side A sight of elegance and grace Red flamingos find their place. With feathers bright as the setting sun And long legs that seem to run Through the water with ease They wade and swim with gentle breeze. Their beaks curved like a crescent moon Sift through the mud for their next spoon Of tiny crustaceans and shrimp That make up their daily mealtime whim. Their beauty a true wonder to behold A symphony of red pink and gold As they...`,
-  };
 
+function DetailsRepos({ repo }) {
+let moment = require("moment");
+console.log("repo=", repo)
   return (
     <PostDetailContainer>
       <PostDetailCard>
@@ -31,34 +22,34 @@ function PostDetailsPage({ postId }) {
             <IoMdArrowRoundBack />
             Retour
           </NavButton>
-          <a href={post.url} target="_blank">
+          <a href={repo?.html_url} target="_blank">
             Voir sur le site
             <TbWorldWww style={{ marginBottom: "2.5px" }} />
           </a>
         </header>
         <div>
-          <h1>{post.title}</h1>
+          <h1>{repo?.name}</h1>
         </div>
         <footer>
           <span>
             <i className="fa-brands fa-github"></i>
-            {post.githubUsername}
+            {repo?.owner.login}
           </span>
           <span>
             <i className="fa-solid fa-calendar"></i>
-            {post.createdAt}
+            {repo?.createdAt}
           </span>
           <span>
             <i className="fa-solid fa-comment"></i>
-            {post.comments} Comments
+            Dernier push :{repo && moment(repo?.pushed_at).fromNow()}
           </span>
         </footer>
       </PostDetailCard>
       <PostDetailContent>
-        <div>{post.body}</div>
+        <div>{repo?.description}</div>
       </PostDetailContent>
     </PostDetailContainer>
   );
 }
 
-export default PostDetailsPage;
+export default DetailsRepos;

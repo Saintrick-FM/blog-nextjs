@@ -7,7 +7,7 @@ function error() {
       <h2 style={{ margin: "50px auto" }}>
         Ooops, Une erreur s&lsquo;est produite.
       </h2>
-      <Link href="/home">Aller à la page d&lsquo;accueil</Link>
+      <Link href="/home" style={{ margin: "50px auto" }}>Aller à la page d&lsquo;accueil</Link>
     </>
   );
 }

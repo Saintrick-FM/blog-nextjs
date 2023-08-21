@@ -1,6 +1,6 @@
 import Image from "next/image";
 import profil_picture from "../../../assets/images/My_resized_photo.jpeg";
-import getGithubUserData from "../../../helpers/getGithubUserData";
+import getUserData from "../../../helpers/githubRequests/getUserData";
 
 import Link from "next/link";
 import { BsGithub } from "react-icons/bs";
@@ -9,7 +9,7 @@ import { BsBoxArrowUpRight } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 
 export default async function UserData() {
-  const resp = getGithubUserData("Saintrick-FM");
+  const resp = getUserData("Saintrick-FM");
   const { name, followers, login, company, html_url, avatar_url, bio } =
     await resp;
   return (

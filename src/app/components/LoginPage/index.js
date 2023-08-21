@@ -29,7 +29,7 @@ function LoginPage() {
     >
       <div className={`${styles.formContainer} ${styles.signUpContainer}`}>
         <form className={styles.form}>
-          <h1 className={styles.h1_title}>Créer un compte</h1>
+          <h1 className={styles.h1_title}>Créer un</h1>
           <div className={styles.socialContainer}>
             <a href="#">
               {/* <i className="fab fa-facebook-f"></i> */}
@@ -55,18 +55,18 @@ function LoginPage() {
             </a>
           </div>
           <span className={styles.span}>Ou s&lsquo;inscrire avec.</span>
-          <input className={styles.input} type="text" placeholder="Nom" />
-          <input className={styles.input} type="email" placeholder="Email" />
-          <input
+          <input className={styles.input} type="text" placeholder="Intitulé du compte github" />
+          {/* <input className={styles.input} type="email" placeholder="Email" /> */}
+          {/* <input
             className={styles.input}
             type="password"
             placeholder="Mot de passe"
-          />
+          /> */}
           <button
             className={`${styles.button} `}
             onClick={(e) => setToRegister(e)}
           >
-            S&lsquo;inscrire
+            Confirmer
           </button>
         </form>
       </div>
@@ -120,7 +120,7 @@ function LoginPage() {
           <div className={`${styles.overlayPanel} ${styles.overlayLeft}`}>
             <h1 className={styles.h1_title}>Bienvenue!</h1>
             <p className={styles.paragraph}>
-              Veillez vous connecter avec vos identifiants svp.
+              Connectez-vous directement avec votre compte github enregistré.
             </p>
             <button
               className={`${styles.button} ${styles.ghost}`}
@@ -134,14 +134,14 @@ function LoginPage() {
           <div className={`${styles.overlayPanel} ${styles.overlayRight}`}>
             <h1 className={styles.h1_title}>Bonjour cher ami!</h1>
             <p className={styles.paragraph}>
-              Inscrivez-vous puis profitez de notre merveilleux blog.
+              Entrez les informations du compte github puis profitez au max.
             </p>
             <button
               className={`${styles.button} ${styles.ghost}`}
               onClick={(e) => setToRegister(e)}
               id="signUp"
             >
-              S&lsquo;inscrire
+              Confirmer
             </button>
           </div>
         </div>
