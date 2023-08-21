@@ -1,19 +1,16 @@
 export default async function getSingleRepo(payload) {
-
-  console.log("payload = ", payload);
   try {
     const resp = await fetch(
       `https://api.github.com/repos/${payload.username}/${payload.repoName}`
-      );
-      const data = resp.json();
-      console.log("data = ", data);
-    
+    );
+    const data = resp.json();
+
     return data;
   } catch (error) {
     return undefined;
   }
 }
- /* {
+/* {
         "id": 419702890,
         "node_id": "R_kgDOGQQoag",
         "name": "ApiAppSchool",

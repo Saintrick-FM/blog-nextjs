@@ -29,7 +29,7 @@ function LoginPage() {
     >
       <div className={`${styles.formContainer} ${styles.signUpContainer}`}>
         <form className={styles.form}>
-          <h1 className={styles.h1_title}>Créer un</h1>
+          <h1 className={styles.h1_title}>Enregistrez votre compte github </h1>
           <div className={styles.socialContainer}>
             <a href="#">
               {/* <i className="fab fa-facebook-f"></i> */}
@@ -55,7 +55,11 @@ function LoginPage() {
             </a>
           </div>
           <span className={styles.span}>Ou s&lsquo;inscrire avec.</span>
-          <input className={styles.input} type="text" placeholder="Intitulé du compte github" />
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="Intitulé du compte github"
+          />
           {/* <input className={styles.input} type="email" placeholder="Email" /> */}
           {/* <input
             className={styles.input}
