@@ -29,7 +29,6 @@ function LoginPage() {
   const setToRegister = (e) => {
     e.preventDefault();
     setLoadingBtn(true);
-    console.log("github_name = ", github_name.current.value);
     sessionStorage.setItem("github_username", github_name.current.value);
 
     dispatch(setGithubUsername(github_name.current.value));

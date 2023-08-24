@@ -11,8 +11,7 @@ import { TbWorldWww } from "react-icons/tb";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 function DetailsRepos({ repo }) {
-let moment = require("moment");
-console.log("repo=", repo)
+  let moment = require("moment");
   return (
     <PostDetailContainer>
       <PostDetailCard>
