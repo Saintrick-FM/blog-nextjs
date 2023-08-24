@@ -1,4 +1,4 @@
-import DetailsRepos from "../../components/PostDetailsPage";
+import DetailsRepos from "../../../components/PostDetailsPage";
 import getAllUserRepos from "../../../helpers/githubRequests/getAllUserRepos";
 import getSingleRepo from "../../../helpers/githubRequests/getSingleRepo";
 

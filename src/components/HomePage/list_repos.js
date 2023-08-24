@@ -7,9 +7,9 @@ import {
 
 import { useSelector } from "react-redux";
 import PostCard from "../../components/_post_card";
-import getAllUserRepos from "../../../helpers/githubRequests/getAllUserRepos";
+import getAllUserRepos from "../../helpers/githubRequests/getAllUserRepos";
 
-async function ListRepos({github_username}) {
+async function ListRepos({ github_username }) {
   const resp = getAllUserRepos(github_username);
   const projects = await resp;
 

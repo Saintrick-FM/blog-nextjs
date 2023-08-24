@@ -1,13 +1,13 @@
 import Image from "next/image";
-import profil_picture from "../../../assets/images/My_resized_photo.jpeg";
-import getUserData from "../../../helpers/githubRequests/getUserData";
+import profil_picture from "../../../public/assets/images/My_resized_photo.jpeg";
+import getUserData from "../../helpers/githubRequests/getUserData";
 
 import { BsGithub } from "react-icons/bs";
 import { FaUsers, FaHotel } from "react-icons/fa";
 import { BsBoxArrowUpRight } from "react-icons/bs";
-import DisconnectUser from "./disconnect_user"
+import DisconnectUser from "./disconnect_user";
 
-export default async function UserData({github_username}) {
+export default async function UserData({ github_username }) {
   const resp = getUserData(github_username);
   const { name, followers, login, company, html_url, avatar_url, bio } =
     await resp;
@@ -27,7 +27,7 @@ export default async function UserData({github_username}) {
             GITHUB
             <BsBoxArrowUpRight style={{ marginBottom: "2.5px" }} />
           </a>
-         <DisconnectUser/>
+          <DisconnectUser />
         </header>
 
         <footer>

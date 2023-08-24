@@ -1,6 +1,6 @@
 "use client";
 import { BsFacebook, BsGoogle } from "react-icons/bs";
-import styles from "../../page.module.css";
+import styles from "../../app/page.module.css";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "antd";
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setGithubUsername,
   fetchGithubUserData,
-} from "../../../helpers/redux_toolkit";
+} from "../../helpers/redux_toolkit";
 
 function LoginPage() {
   const [isRegistered, setIsRegistered] = useState(false);

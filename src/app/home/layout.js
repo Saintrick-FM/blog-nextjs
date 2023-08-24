@@ -1,6 +1,6 @@
 "use client";
 import { Montserrat } from "next/font/google";
-import Header from "../components/_header";
+import Header from "../../components/_header";
 
 export default function RootLayout({ children }) {
   return (
