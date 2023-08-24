@@ -1,15 +1,39 @@
 "use client";
 import { BsFacebook, BsGoogle } from "react-icons/bs";
 import styles from "../../page.module.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Button } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setGithubUsername,
+  fetchGithubUserData,
+} from "../../../helpers/redux_toolkit";
 
 function LoginPage() {
   const [isRegistered, setIsRegistered] = useState(false);
-  const router = useRouter();
+  const [loadingBtn, setLoadingBtn] = useState(false);
 
+  const router = useRouter();
+  const github_name = useRef("");
+
+  const dispatch = useDispatch();
+  const github_userData = useSelector((state) => state.user.github_userData);
+
+  useEffect(() => {
+    if (github_userData !== null) {
+      setLoadingBtn(false);
+      router.push("/home"); // Redirect to the home page
+    }
+  }, [github_userData]);
   const setToRegister = (e) => {
     e.preventDefault();
+    setLoadingBtn(true);
+    console.log("github_name = ", github_name.current.value);
+    sessionStorage.setItem("github_username", github_name.current.value);
+
+    dispatch(setGithubUsername(github_name.current.value));
+    dispatch(fetchGithubUserData(github_name.current.value));
     setIsRegistered(false);
   };
   const setToLogin = (e) => {
@@ -56,26 +80,31 @@ function LoginPage() {
           </div>
           <span className={styles.span}>Ou s&lsquo;inscrire avec.</span>
           <input
+            ref={github_name}
             className={styles.input}
             type="text"
+            value="Saintrick-FM"
             placeholder="Intitulé du compte github"
           />
           {/* <input className={styles.input} type="email" placeholder="Email" /> */}
-          {/* <input
-            className={styles.input}
-            type="password"
-            placeholder="Mot de passe"
-          /> */}
-          <button
+
+          <Button
             className={`${styles.button} `}
             onClick={(e) => setToRegister(e)}
+            size="large"
+            style={{
+              marginTop: "10px",
+              borderRadius: "20px",
+              padding: "0 45px",
+            }}
+            loading={loadingBtn}
           >
-            Confirmer
-          </button>
+            {loadingBtn ? "Chargement..." : "Confirmer"}
+          </Button>
         </form>
       </div>
 
-      <div className={`${styles.formContainer} ${styles.signInContainer}`}>
+      <div classNames={`${styles.formContainer} ${styles.signInContainer}`}>
         <form className={styles.form} action="#">
           <h1 className={styles.h1_title}>Se connecter</h1>
           <div className={styles.socialContainer}>
@@ -140,13 +169,21 @@ function LoginPage() {
             <p className={styles.paragraph}>
               Entrez les informations du compte github puis profitez au max.
             </p>
-            <button
+            {/* <button
               className={`${styles.button} ${styles.ghost}`}
               onClick={(e) => setToRegister(e)}
-              id="signUp"
-            >
+              >
               Confirmer
-            </button>
+            </button> */}
+            <Button
+              id="signUp"
+              className={`${styles.button} ${styles.ghost}`}
+              onClick={(e) => setToRegister(e)}
+              danger
+              loading={loadingBtn}
+            >
+              {loadingBtn ? "Chargement..." : "Confirmer fm2"}
+            </Button>
           </div>
         </div>
       </div>

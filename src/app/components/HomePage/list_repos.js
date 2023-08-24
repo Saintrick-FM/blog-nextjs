@@ -5,11 +5,12 @@ import {
   ListSection,
 } from "./styles";
 
+import { useSelector } from "react-redux";
 import PostCard from "../../components/_post_card";
 import getAllUserRepos from "../../../helpers/githubRequests/getAllUserRepos";
 
-async function ListRepos() {
-  const resp = getAllUserRepos("Saintrick-FM");
+async function ListRepos({github_username}) {
+  const resp = getAllUserRepos(github_username);
   const projects = await resp;
 
   return (

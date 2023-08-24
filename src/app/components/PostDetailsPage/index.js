@@ -33,7 +33,7 @@ console.log("repo=", repo)
         <footer>
           <span>
             <i className="fa-brands fa-github"></i>
-            {repo?.owner.login}
+            {repo?.owner?.login}
           </span>
           <span>
             <i className="fa-solid fa-calendar"></i>

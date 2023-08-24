@@ -2,14 +2,13 @@ import Image from "next/image";
 import profil_picture from "../../../assets/images/My_resized_photo.jpeg";
 import getUserData from "../../../helpers/githubRequests/getUserData";
 
-import Link from "next/link";
 import { BsGithub } from "react-icons/bs";
 import { FaUsers, FaHotel } from "react-icons/fa";
 import { BsBoxArrowUpRight } from "react-icons/bs";
-import { BiLogOut } from "react-icons/bi";
+import DisconnectUser from "./disconnect_user"
 
-export default async function UserData() {
-  const resp = getUserData("Saintrick-FM");
+export default async function UserData({github_username}) {
+  const resp = getUserData(github_username);
   const { name, followers, login, company, html_url, avatar_url, bio } =
     await resp;
   return (
@@ -28,10 +27,7 @@ export default async function UserData() {
             GITHUB
             <BsBoxArrowUpRight style={{ marginBottom: "2.5px" }} />
           </a>
-          <Link href="/">
-            Se déconnecter
-            <BiLogOut style={{ marginBottom: "2.5px" }} />
-          </Link>
+         <DisconnectUser/>
         </header>
 
         <footer>

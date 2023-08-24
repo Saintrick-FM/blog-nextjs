@@ -50,8 +50,8 @@ export const PostCardContainer = styled(Link)`
 
   &:hover {
     border: 2px solid ${(props) => props.theme["base-label"]};
-    box-shadow: 0 14px 25px var(--red-low-opacity),
+    box-shadow: 0 14px 15px var(--red-low-opacity),
       0 10px 10px var(--red-low-opacity),
-      -10px -10px 25px var(--red-low-opacity);
+      -10px -10px 15px var(--red-low-opacity);
   }
 `;

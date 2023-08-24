@@ -18,6 +18,7 @@ export async function generateMetada({ params, searchParams }, parent) {
     description: `Page relative au repos : ${repo.name}`,
   };
 }
+
 export default async function singleRepo({ params: { singleRepo } }) {
   const resp = getSingleRepo({
     username: "Saintrick-FM",
