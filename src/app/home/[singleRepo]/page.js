@@ -9,7 +9,8 @@ export async function generateStaticParams() {
   return allUserRepos.map((userRepos) => ({ singleRepo: userRepos.name }));
 }
 
-export async function generateMetada({ params, searchParams }, parent) {
+// export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params, searchParams }, parent) {
   const singleRepo = params.singleRepo;
   let resp = getSingleRepo({ username: "Saintrick-FM", repoName: singleRepo });
   let repo = await resp;
