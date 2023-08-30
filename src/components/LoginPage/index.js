@@ -7,9 +7,9 @@ import { Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setGithubUsername,
-  fetchGithubUserData,
+  setGithubUserData,
 } from "../../helpers/redux_toolkit";
-
+import axios from "axios";
 function LoginPage() {
   const [isRegistered, setIsRegistered] = useState(false);
   const [loadingBtn, setLoadingBtn] = useState(false);
@@ -20,25 +20,41 @@ function LoginPage() {
   const dispatch = useDispatch();
   const github_userData = useSelector((state) => state.user.github_userData);
 
-  useEffect(() => {
-    if (github_userData !== null) {
-      setLoadingBtn(false);
-      router.push("/home"); // Redirect to the home page
-    }
-  }, [github_userData]);
+  // useEffect(() => {
+  //   if (github_userData !== null) {
+  //      // Redirect to the home page
+  //   }
+  // }, [github_userData]);
+
   const setToRegister = (e) => {
     e.preventDefault();
     setLoadingBtn(true);
     sessionStorage.setItem("github_username", github_name.current.value);
 
-    dispatch(setGithubUsername(github_name.current.value));
-    dispatch(fetchGithubUserData(github_name.current.value));
+    fetchGithubUserData(github_name.current.value);
     setIsRegistered(false);
+  };
+  const fetchGithubUserData = async (github_username) => {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "text/plain");
+
+    try {
+      const result = await axios.post("/api/github_username", {
+        github_username 
+      });
+      setLoadingBtn(false);
+    dispatch(setGithubUsername(result.data.user_data.login));
+    dispatch(setGithubUserData(result.data.user_data));
+      result?.data?.success  && router.push("/home");
+      console.log("result = ", result);
+    } catch (error) {
+      console.log("error = ", error);
+    }
   };
   const setToLogin = (e) => {
     e.preventDefault();
     setIsRegistered(true);
-    router.push("/home", { scroll: false });
+    //router.push("/home", { scroll: false });
   };
   return (
     <div
@@ -82,7 +98,9 @@ function LoginPage() {
             ref={github_name}
             className={styles.input}
             type="text"
-            value="Saintrick-FM"
+            name="github_username"
+            autoFocus
+            // value="Saintrick-FM"
             placeholder="Intitulé du compte github"
           />
           {/* <input className={styles.input} type="email" placeholder="Email" /> */}
@@ -103,7 +121,7 @@ function LoginPage() {
         </form>
       </div>
 
-      <div classNames={`${styles.formContainer} ${styles.signInContainer}`}>
+      <div className={`${styles.formContainer} ${styles.signInContainer}`}>
         <form className={styles.form} action="#">
           <h1 className={styles.h1_title}>Se connecter</h1>
           <div className={styles.socialContainer}>
