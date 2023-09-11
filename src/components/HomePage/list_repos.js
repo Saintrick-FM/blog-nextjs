@@ -13,7 +13,6 @@ import getAllUserRepos from "../../helpers/githubRequests/getAllUserRepos";
 async function ListRepos({ github_username }) {
   const resp = getAllUserRepos(github_username);
   const projects = await resp;
-  // console.log("cookie github_username = ", cookies().get('github_username'))3
   return (
     <HomeContent>
       <SearchSection>

@@ -46,7 +46,7 @@ function LoginPage() {
     dispatch(setGithubUsername(result.data.user_data.login));
     dispatch(setGithubUserData(result.data.user_data));
       result?.data?.success  && router.push("/home");
-      console.log("result = ", result);
+      
     } catch (error) {
       console.log("error = ", error);
     }
@@ -93,7 +93,7 @@ function LoginPage() {
               />
             </a>
           </div>
-          <span className={styles.span}>Ou s&lsquo;inscrire avec.</span>
+          {/* <span className={styles.span}>Ou s&lsquo;inscrire avec.</span> */}
           <input
             ref={github_name}
             className={styles.input}
