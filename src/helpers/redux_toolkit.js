@@ -41,7 +41,7 @@ export const fetchGithubUserData = () => async (dispatch, getState) => {
     const state = getState();
     const githubUsername = state.user.github_username;
     const response = await fetch(
-      `https://api.github.com/users/${githubUsername}`
+      `https://api.github.com/users/${githubUsername}`,{cache:"no-store" }
     );
     if (response.ok) {
       const userData = await response.json();

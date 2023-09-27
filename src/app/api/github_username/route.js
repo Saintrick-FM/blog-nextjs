@@ -42,7 +42,7 @@ export async function POST(request) {
 }
 
 const fetchGithubUserData = async (github_username) => {
-  console.log(github_username)
+  
   try {
     const response = await fetch(
       `https://api.github.com/users/${github_username}`

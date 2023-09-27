@@ -5,13 +5,7 @@ import { LikeOutlined } from "@ant-design/icons";
 
 function PostCard({ project }) {
   let moment = require("moment");
-  /*
-  {
-            background: "var(--card-linear-gradient)",
-            webkitTextFillColor: "transparent",
-            webkitBackgroundClip: "text",
-          }
- */
+  
   return (
     <PostCardContainer href={`/home/${project.name}`}>
       <header>

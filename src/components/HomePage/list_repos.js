@@ -5,14 +5,12 @@ import {
   ListSection,
 } from "./styles";
 
-import { useSelector } from "react-redux";
 import PostCard from "../../components/_post_card";
 import getAllUserRepos from "../../helpers/githubRequests/getAllUserRepos";
-// import { cookies } from 'next/headers'
 
-async function ListRepos({ github_username }) {
-  const resp = getAllUserRepos(github_username);
-  const projects = await resp;
+function ListRepos({ allRepos }) {
+  const projects = allRepos;
+  console.log("Projects = ", projects)
   return (
     <HomeContent>
       <SearchSection>
@@ -25,7 +23,6 @@ async function ListRepos({ github_username }) {
         </div>
         <input
           type="text"
-          // onBlur={(e) => fetchPosts(e.target.value)}
           placeholder="Rechercher an projet"
         />
       </SearchSection>

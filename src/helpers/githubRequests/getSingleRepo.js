@@ -1,7 +1,7 @@
 export default async function getSingleRepo(payload) {
   try {
     const resp = await fetch(
-      `https://api.github.com/repos/${payload.username}/${payload.repoName}`
+      `https://api.github.com/repos/${payload.username}/${payload.repoName}`,{next:{revalidate:3600}} 
     );
     const data = resp.json();
 

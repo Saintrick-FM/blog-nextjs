@@ -45,7 +45,10 @@ function LoginPage() {
       setLoadingBtn(false);
     dispatch(setGithubUsername(result.data.user_data.login));
     dispatch(setGithubUserData(result.data.user_data));
-      result?.data?.success  && router.push("/home");
+
+    if (result?.data?.success && result?.status !== 403 ) {
+       router.push("/home");
+    }
       
     } catch (error) {
       console.log("error = ", error);
