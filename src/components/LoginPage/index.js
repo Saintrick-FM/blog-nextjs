@@ -202,7 +202,7 @@ function LoginPage() {
               danger
               loading={loadingBtn}
             >
-              {loadingBtn ? "Chargement..." : "Confirmer fm2"}
+              {loadingBtn ? "Chargement..." : "Confirmer"}
             </Button>
           </div>
         </div>

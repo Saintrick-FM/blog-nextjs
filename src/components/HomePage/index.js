@@ -5,6 +5,7 @@ import PersonInfo from "../../components/_person_infos";
 import ListRepos from "./list_repos";
 import {useSelector} from "react-redux"
 import useSWR from 'swr'
+import { Suspense } from 'react'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
@@ -32,8 +33,13 @@ function HomePage() {
   
   return (
     <HomeContainer>
+       <Suspense fallback={<p>Chargemenent des infos ...</p>}>
+        
       <PersonInfo ></PersonInfo>
+      </Suspense>
+      
       <ListRepos allRepos={data}/>
+      
     </HomeContainer>
   );
 }
